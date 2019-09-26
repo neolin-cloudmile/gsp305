@@ -12,7 +12,17 @@
    ```
    gcloud docker -- push gcr.io/${PROJECT_ID}/echo-app:v2
    ```
-3. The echo-app application in the echo-web deployment from the v1 to the v2
+3. Confirm current the web version
+   ```
+   curl http://35.222.204.105/
+   ```
+   ```
+   Echo Test
+   Version: 1.0.0
+   Hostname: echo-web-5798dfc4c4-gq5c4
+   Host ip-address(es): 10.40.0.11
+   ```
+4. The echo-app application in the echo-web deployment from the v1 to the v2
    ```
    source <(kubectl completion bash)
    gcloud container clusters get-credentials echo-cluster --zone us-central1-a
@@ -25,7 +35,17 @@
     35          imagePullPolicy: IfNotPresent
     36          name: echo-web
    ```
-4. Scale out the application to 2 instances
+5. Confirm current the web version
+   ```
+   curl http://35.222.204.105/
+   ```
+   ```
+   Echo Test
+   Version: 2.0.0
+   Hostname: echo-web-5798dfc4c4-gq5c4
+   Host ip-address(es): 10.40.0.11
+   ```
+6. Scale out the application to 2 instances
    ```
    kubectl scale deployment echo-web --replicas=2
    ```
