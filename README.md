@@ -48,4 +48,5 @@
 6. Scale out the application to 2 instances
    ```
    kubectl scale deployment echo-web --replicas=2
+   kubectl get pods
    ```
